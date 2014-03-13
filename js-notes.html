@@ -1,0 +1,836 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>JavaScript 101</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>JavaScript 101</h1>
+
+<p><strong>Programming</strong>: In general, turns data into a sequence of 0s and 1s to communicate with the computer. In JavaScript, data is separated into <em>values</em>.</p>
+
+<p><strong>Values</strong>: Every value has a type, which determines the role it plays. There are six basic <em>types</em> listed below.</p>
+
+<p><strong>Types</strong>:</p>
+
+<ul>
+<li>Numbers - Integers &amp; decimals (e.g. 10, 10.001)</li>
+<li>Strings - characters including spaces. <strong>Must</strong> be contained within quotes (e.g. "How are you today?")</li>
+<li>Booleans - true or false (<em>keyword</em>)</li>
+<li>Undefined - means "I don't have a value"</li>
+<li>Objects - see below</li>
+<li>Functions - see below</li>
+</ul>
+
+
+<p><strong>Comments</strong>: Used to leave notes within the code but is not included as part of the instructions for the computer to execute.</p>
+
+<pre><code>// single line comment
+
+/* Comments that
+are longer than a 
+single line. */
+</code></pre>
+
+<p><strong>REPL (read, eval, print, loop)</strong>: takes the code you give it and returns a result. A JavaScript REPL can be accessed in the browser's Developer tools.
+(ex. console tab in Chrome's dev tools)</p>
+
+<p><strong>Expression</strong>: Instructions given to the computer, a fragment of code that  <em>always produces a value</em>. Can be any JavaScript type. A value can also be an expression.</p>
+
+<p>There are two types of expressions: those that simply have a value and those that assign a value to a <em>variable</em>.</p>
+
+<p>REPL Chrome console example:</p>
+
+<pre><code>&gt; 1 + 1 //expression
+&gt; 2 //value
+
+&gt; 2 //expression
+&gt; 2 //value
+
+&gt; variableName = 1 + 1 //expression
+&gt; 2 //value
+</code></pre>
+
+<p><strong>Statements</strong>: Also instructions given to the computer but <em>does not always return a value</em>. Can consist of one or more expressions, keywords, or operators. Statements end with a semi-colon to indicate the end of the instruction.</p>
+
+<p>REPL Chrome console example:</p>
+
+<pre><code>&gt; 1 + 1; //can be an expression or statement
+&gt; 2 //value
+
+&gt; variableName = "hello"; //can be an expression or statement
+&gt; "hello" //value
+
+&gt; var variableName = "hello"; //statement only - does not return a value
+&gt; undefined 
+</code></pre>
+
+<p><strong>Keyword</strong>: Special words reserved in JavaScript to denote specific behaviours. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Reserved_Words">MDN Keyword List</a></p>
+
+<p><strong>Block Statements</strong>:
+Used to group zero or more statements. Enclosed by a pair of curly brackets <code>{}</code> to create the block. Single line statements must end in a semi-colon but the block itself does not. Generally used with <em>control flow statements</em>.</p>
+
+<pre><code>var singleLineStatement = "hello"; //needs semi-colon
+
+if (condition === "something"){
+
+    var singleLineStatement = "hello"; //needs semi-colon
+    var anotherStatement = "hi"; //needs semi-colon
+
+} //does not need semi-colon
+</code></pre>
+
+<h2>Variables</h2>
+
+<p>Used as a container to hold a value and/or grab data to be used later, as needed. The <em>keyword</em> <code>var</code> is used to <em>declare</em> the variable and bring it into existence. The actual variable name is created by you, the programmer.</p>
+
+<p>To get a variable to hold onto a value, it needs to be <em>assigned</em> by using the <code>=</code> <em>operator</em>. Values can be assigned to a variable using one or two statements.</p>
+
+<pre><code>var greeting; // no value assigned yet
+greeting = "Hello!"; //value assigned here
+
+//variable declared and value assigned in one line
+var greeting = "Hello!"; 
+</code></pre>
+
+<h2>Functions</h2>
+
+<p>Used to group code/instructions &amp; stores them into descriptive names. Contains reusable chunks of code. Define the function first but it will not run until you call the function. Functions can be used inside other functions.</p>
+
+<p>JavaScript contains many built in functions to make the code do various thing. Example <code>alert()</code> creates a pop-up, <code>prompt()</code> create a pop-up that asks for user input.</p>
+
+<p><a href="http://www.scribd.com/doc/19457597/Javascript-Methods">List of JS methods/functions</a></p>
+
+<h3>Defining a function</h3>
+
+<p>Create your own functions using the <em>keyword</em> <code>function</code>.
+Functions need to be <em>defined</em> to bring it into existence. The name of the function is created by you, the programmer. Choose a descriptive name.</p>
+
+<p>Functions also have to be <em>called</em> in order for it to actually run and execute the instructions. Functions are called by using the function name, followed by parenthesis.</p>
+
+<pre><code>alert(); //calling the alert function
+</code></pre>
+
+<p>There are two ways to define a function, as a <em>declaration</em> or as an <em>expression</em>. Both work similarly but the browser loads &amp; executes the code slightly different.</p>
+
+<h4>Function declarations</h4>
+
+<p>Generally, Javascript executes code from top to bottom but function declarations are loaded <em>before</em> any code can run. In this case, the function will execute even if it was called <em>before</em> the function was defined.</p>
+
+<h5>Syntax</h5>
+
+<pre><code>function nameOfFunction(){
+    // code to be executed
+}
+</code></pre>
+
+<h5>Example</h5>
+
+<pre><code>myFunction(); // calling the function
+
+//defining function
+function myFunction() { 
+    alert("This is a function declaration!"); 
+} 
+</code></pre>
+
+<h4>Function Expression</h4>
+
+<p>Function expressions load only when the program reaches that line of code. In this case, if you call a function expression <em>before</em> it's defined, it will return an error because the computer thinks the function is not defined yet.</p>
+
+<h5>Syntax</h5>
+
+<pre><code>var nameOfFunction = function(){
+    // code to be executed
+};
+</code></pre>
+
+<h5>Example</h5>
+
+<pre><code>myFunction(); // calling function
+
+//defining function
+var myFunction = function() { 
+    alert("This is a function expression!"); 
+};
+
+&gt; TypeError: undefined is not a function
+</code></pre>
+
+<p>When using a function expression, the function must be called <em>after</em> it’s been defined in order to execute the code.</p>
+
+<p>Here's a helpful <a href="http://stackoverflow.com/questions/1013385/what-is-the-difference-between-a-function-expression-vs-declaration-in-javascrip">Stack Overflow discussion</a>.</p>
+
+<h4>Self-Executing / Invoking functions</h4>
+
+<p>A self-invoking function means a function which invokes immediately after it has been defined. And that's all I'm going to say.</p>
+
+<p>Read <a href="http://blog.mgechev.com/2012/08/29/self-invoking-functions-in-javascript-or-immediately-invoked-function-expression/">Self-invoking functions in JavaScript (or Immediately Invoked Function Expressions</a> for more info.</p>
+
+<h5>Syntax</h5>
+
+<pre><code>(function() {
+    // code to be executed
+}());
+
+// alternative syntax
+
+(function() {
+    // code to be executed
+})();
+</code></pre>
+
+<h3>Functions and semicolons</h3>
+
+<p><strong>Function declarations</strong> are contained in a <code>block</code> denoted by the <code>{}</code> so it does not require a semicolon.</p>
+
+<pre><code>function foo() {
+    //do stuff here
+}
+</code></pre>
+
+<p><strong>Function expressions</strong> require a semicolon because the function is assigned to the variable which makes it a statement. Statements require a semicolon.</p>
+
+<pre><code>var foo = function() {
+    //do stuff here
+};
+</code></pre>
+
+<p><strong>Self invoking functions</strong> also requires a semicolon.</p>
+
+<pre><code>(function () {
+    //do stuff here
+})();
+</code></pre>
+
+<p>Another useful <a href="http://stackoverflow.com/questions/1834642/best-practice-for-semicolon-after-every-function-in-javascript">Stack Overflow discussion</a>.</p>
+
+<h3>Functions with Parameters/Arguments</h3>
+
+<p>Functions can be more flexible and reusable with different options by <em>passing</em> a <strong>parameter</strong> into the function. Functions can be used with zero or more parameters.</p>
+
+<pre><code>function myFunction(){
+    alert("No parameters!");
+}
+
+function anotherFunction(param1, param2){
+    alert("The two parameters are: " + param1 + "," + param2);
+}
+</code></pre>
+
+<p>When a function is <em>called</em>, data that is passed are referred to as <strong>arguments</strong>. These arguments are then passed into the parameters of the function.</p>
+
+<pre><code>//calling a function with no parameters
+myFunction();
+
+//calling the function and passing two different 
+//sets of arguments into param1 and param2
+anotherFunction("hello", "hi");
+anotherFunction("goodbye", "bye");
+</code></pre>
+
+<h2>Functions and <code>return</code></h2>
+
+<p><code>return</code> is a <em>statement</em> that specifies the value to be returned by the function. If <code>return</code> is used with no expression, it immediately stops at the point where return is called and doesn't executes any of the commands that come after.</p>
+
+<h3><code>return</code> with no expression</h3>
+
+<pre><code>function myMessage(){
+    alert("First message.");
+    return;
+    alert("Second message will not log.");
+}
+myMessage();
+</code></pre>
+
+<p>Will only alert "First message."</p>
+
+<h3><code>return</code> with an expression</h3>
+
+<pre><code>function makePizza(toppings){
+    return toppings;
+}
+
+var myPizza = makePizza("pepperoni &amp; mushrooms");
+alert(myPizza);
+</code></pre>
+
+<p>The <code>makePizza</code> function has been assigned to the variable <code>myPizza</code>.<br/>
+The argument "pepperoni &amp; mushrooms" is passed into the <code>toppings</code> parameter.  The alert will then show "pepperoni &amp; mushrooms".</p>
+
+<h2>Objects</h2>
+
+<p>Objects are similar to variables because it can be used to hold values BUT it can hold a <em>collection</em> of values instead of just one. An object is also a special kind of data, with <em>properties</em> and <em>methods</em>.</p>
+
+<h3>Creating an object</h3>
+
+<p>Just like <em>variables</em>, an <em>object</em> needs to be defined first before it can be used.</p>
+
+<p><strong>Defining an empty object</strong></p>
+
+<pre><code>var myObject = new Object();
+var myObject = {};
+</code></pre>
+
+<p>Both lines are the same, <code>{}</code> is shorthand for <code>new Object()</code></p>
+
+<h3>Adding values to the <code>object</code></h3>
+
+<p><em>Variables</em> are called <strong>properties</strong> when they're associated with objects.<br/>
+<em>Functions</em> are called <strong>methods</strong> when they're associated with objects.</p>
+
+<p>When assigning a value to a variable, the <code>=</code> operator is used.  When assigning a value to a property, use a colon instead. Just like variables, the property name can be created by the programmer.</p>
+
+<p>Methods are assigned as a value to the property.</p>
+
+<p>Each property/value pair, also referred to as a key/value pair, must be separated by a comma unless it's the last one.</p>
+
+<pre><code>var myObject = {};
+
+myObject = {
+    myProperty : "value",
+    anotherProperty : "another value",
+    myMethod : function(){        
+        // code to be executed            
+    }// closes function
+};
+</code></pre>
+
+<p>It can also be defined and assigned values in one step.</p>
+
+<pre><code>var myObject = {
+    myProperty : "value",
+    anotherProperty : "another value",
+    myMethod : function(){        
+        // code to be executed            
+    }// closes function
+};
+</code></pre>
+
+<h3>Adding properties &amp; methods to an object</h3>
+
+<p>There are many ways (of course) to add new properties and methods to an object after it's been created:</p>
+
+<pre><code>//defining object with 2 properties
+var myDinner = {
+    appetizer: "salad",
+    main: "chicken"
+};
+</code></pre>
+
+<p><strong>Adding Properties with Dot Notation</strong><br/>
+<em>Syntax</em>: objectName.propertyName</p>
+
+<pre><code>myDinner.side = "rice";
+myDinner.dessert = "ice cream";
+myDinner.dinnerTime = function(){
+    //start eating
+}
+</code></pre>
+
+<p><strong>Adding Properties with Square Bracket Notation</strong><br/>
+<em>Syntax</em>: objectName["propertyName"]</p>
+
+<pre><code>myDinner["side"] = "rice";
+myDinner["dessert"] = "ice cream";
+myDinner["dinnerTime"] = function(){
+    //start eating
+}
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/1168807/how-can-i-add-a-key-value-pair-to-a-javascript-object-literal">Another handy Stack Overflow discussion</a>.</p>
+
+<h3>Retrieve an item from an object</h3>
+
+<p>You can retrieve properties from an object using the same syntax as adding a property.</p>
+
+<pre><code>myDinner.side; // will return "rice"
+myDinner["dessert"]; // will return "ice cream"
+</code></pre>
+
+<h3>Executing a Method</h3>
+
+<p>A method <em>is</em> a function, except that it's associated to an object. Calling the method uses the same syntax as calling a function but use <em>dot notation</em> to attach it to a specific object.</p>
+
+<pre><code>myDinner.dinnerTime(); // will run the dinnerTime function
+</code></pre>
+
+<h3>Variables &amp; Objects</h3>
+
+<p>Variables can be treated like objects. That means, methods can be associated to a variable, since it is an object too.</p>
+
+<pre><code>var firstname = "Christina";
+
+// apply existing javascript property .length using dot notation
+var numberOfLetters = firstname.length;
+alert(numberOfLetters);
+</code></pre>
+
+<p>A popular built-in javascript object/method combo is <code>console.log()</code>. Instead of using alert(), which can get annoying, <code>console.log(argument)</code> will log whatever argument you pass into the browser's console. Very handy when debugging and testing.</p>
+
+<h2>Arrays</h2>
+
+<p>Similar to objects because they both hold a collection of values. BUT, arrays hold its values in a numerical index rather than labels.</p>
+
+<p>Think of arrays as egg cartons. All the eggs are in one carton but each egg has its own slot.</p>
+
+<p>Arrays are declared using the <em>keyword</em> <code>var</code> but <em>square brackets</em> are used to hold the values, separated by commas. It can hold any JavaScript value type.</p>
+
+<pre><code>var eggCarton = [];
+eggCarton = ["chicken egg", "duck egg", "quail egg", "no egg"];
+</code></pre>
+
+<p>Array indexes <strong>ALWAYS</strong> start at <strong>ZERO</strong>. STARTS AT ZERO. ALWAYS.<br/>
+The first item in the array has an index of 0. Values in an array can also be assigned to the index number.</p>
+
+<pre><code>eggCarton[0] = "chicken egg";
+eggCarton[1] = "duck egg";
+eggCarton[2] = "quail egg";
+eggCarton[3] = "no egg";
+</code></pre>
+
+<h3>Adding a new value</h3>
+
+<p><code>push()</code> is a built-in method use to add an item, which goes to the end of the array.</p>
+
+<pre><code>eggCarton.push("goose egg");
+</code></pre>
+
+<h3>Get items from an array</h3>
+
+<p>The index number is also used to access the value from the array. In this example, the <em>second</em> item of the array will be logged into the browser console.</p>
+
+<pre><code>console.log(eggCarton[1]);
+</code></pre>
+
+<h2>Control Flow</h2>
+
+<p>By default, statements are executed one after the other, in the order they are written. Control flow refers to techniques used to specify alternate courses for the program flow based on logical decisions. (e.g. if, for, while statements)</p>
+
+<h3><code>if</code> conditional statements</h3>
+
+<p>Used to make decisions with your code based on possible circumstances. Starts with the <em>keyword</em> <code>if</code> followed by round brackets <code>()</code> to hold a condition to test. The curly braces <code>{}</code> denote a <em>block statement</em> to group statements to be performed if that condition is true. If the condition is false, nothing happens.</p>
+
+<pre><code>if (condition to check for) {
+    //statements to be executed if condition is true
+}
+if (3 &gt; 1) {
+    console.log("Three is bigger than 1.");
+}
+</code></pre>
+
+<h3><code>if</code> / <code>else</code> conditional statements</h3>
+
+<p>The <code>else</code> <em>keyword</em> can be added as a fallback block of code that will run if the condition isn't met. It's optional.</p>
+
+<pre><code>if (5 &lt; 2){
+    console.log("Condition is false. This statement will never run.");
+} else {
+    console.log("This statement will run instead.")
+}
+</code></pre>
+
+<h3><code>if</code> / <code>else if</code> / <code>else</code>/ conditional statements</h3>
+
+<p>Test multiple conditions by using <code>else if</code> before <code>else</code>. There is no limit to the amount of <code>else if</code> statements that can be used.</p>
+
+<pre><code>var weather = "sunny";
+
+if (weather === "snowy") {
+    console.log("Ugh.");
+} else if (weather === "sunny"){
+    console.log("Yay! Let's go the beach.");
+} else if (weather === "clear"){
+    console.log("I can live with that.");
+} else {
+    console.log("I don't know what the weather is.")
+}
+
+&gt; Yay! Let's go the beach.
+</code></pre>
+
+<h4>Complex conditionals</h4>
+
+<p>Logical operators can be used to create complex conditional statements.</p>
+
+<p><code>&amp;&amp;</code> represents "and"<br/>
+<code>||</code> represents "or"<br/>
+<code>!</code>  represents "not"</p>
+
+<pre><code>var smallNumber = 1;
+var bigNumber = 100;
+
+if(smallNumber &lt; 10 &amp;&amp; bigNumber &gt; 50){
+    console.log("Will log if both conditions are true.");
+} 
+
+if(smallNumber &gt; 10 || bigNumber &gt; 50) {            
+    console.log("Will log if at least one condition is true.");
+}
+
+if(smallNumber !== 2){
+    console.log("Will log because this condition is true.");
+}
+</code></pre>
+
+<h2>Loops</h2>
+
+<p>Loops are used to execute repetitive code for a specified number of times or through a list of values. Loops will execute the same code continuously, using conditional statements to determine when to begin and stop.</p>
+
+<h3><code>while</code> loops</h3>
+
+<p>Creates a loop that executes a specified statement and repeats as long as the condition evaluates to true.</p>
+
+<p><strong>If the condition is never false, the while loop will keep going and crash the browser.</strong></p>
+
+<pre><code>// declaring index variable
+var i = 0;
+
+while (i &lt; 3) {
+    i++; // increments the value of i by 1 after each loop
+    console.log("The index is " + i);
+}
+</code></pre>
+
+<p>In each iteration, the loop increments <code>i</code> by 1.</p>
+
+<ul>
+<li>first pass: The index is 1</li>
+<li>second pass: The index is 2</li>
+<li>third pass: The index is 3</li>
+</ul>
+
+
+<h3>For Loops</h3>
+
+<p>Can also be used to repeat a set of instructions. Creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons.</p>
+
+<pre><code>for (start; stop; increment) {
+    // statements to run as long as condition is true
+}
+
+for (var i = 0; i &lt; 5; i++) {
+    console.log("The current count of the loop is " + i);
+}
+</code></pre>
+
+<p>The variable name can be anything but using <code>i</code> is common because it refers to an index. In this example, the index starts at 0, stops at 4 and adds 1 to the index until the condition is false.</p>
+
+<h3>Loops &amp; arrays</h3>
+
+<p><code>for</code> loops can be used to iterate through all the items within an array. You can't assume that you will always know how many items will be in the array so the <code>.length</code> method is used to grab the total number of items in the array.</p>
+
+<p><strong>Important</strong>: the index variable has to start at 0. Array indexes are <strong>zero based</strong> meaning the first item has an index of 0.</p>
+
+<pre><code>var myMeals = ["breakfast", "second breakfast", "lunch", "dinner"];
+
+for(var i = 0; i &lt; myMeals.length; i++){
+    console.log("Would you look at the time. It's " + myMeals[i] + " time.");
+}
+</code></pre>
+
+<p>Logs:<br/>
+It's breakfast time.<br/>
+It's second breakfast time.<br/>
+It's lunch time.<br/>
+It's dinner time.</p>
+
+<hr />
+
+<p>And that’s all folks!</p>
+
+<h5>By Christina Truong // <a href="http://christinatruong.com">christinatruong.com</a></h5>
+</body>
+</html>
