@@ -2,7 +2,7 @@
 
 **Programming**: In general, turns data into a sequence of 0s and 1s to communicate with the computer. In JavaScript, data is separated into *values*. 
 
-**Values**: Every value has a type, which determines the role it plays. There are six basic *types* listed below.  
+**Values**: Every value has a type, which determines the role it plays. There are seven basic *types* listed below.  
 
 **Types**:
 
@@ -10,6 +10,7 @@
 * Strings - characters including spaces. **Must** be contained within quotes (e.g. "How are you today?")
 * Booleans - true or false (*keyword*)
 * Undefined - means "I don't have a value"
+* Null - means "I have a value of nothing" — note that this is similar to (but logically distinct from) *Undefined*
 * Objects - see below
 * Functions - see below
 
