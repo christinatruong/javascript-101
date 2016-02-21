@@ -223,7 +223,7 @@ Will only alert "First message."
 	var myPizza = makePizza("pepperoni & mushrooms");
 	alert(myPizza);
 
-The `makePizza` function has been assigned to the variable `myPizza`.  
+The value returned by the `makePizza` function has been assigned to the variable `myPizza`.  
 The argument "pepperoni & mushrooms" is passed into the `toppings` parameter.  The alert will then show "pepperoni & mushrooms".
 
 ##Objects
