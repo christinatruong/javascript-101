@@ -321,7 +321,7 @@ pre {
 <pre><code>// single line comment
 
 /* Comments that
-are longer than a 
+are longer than a
 single line. */
 </code></pre>
 
@@ -355,7 +355,7 @@ single line. */
 &gt; "hello" //value
 
 &gt; var variableName = "hello"; //statement only - does not return a value
-&gt; undefined 
+&gt; undefined
 </code></pre>
 
 <p><strong>Keyword</strong>: Special words reserved in JavaScript to denote specific behaviours. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Reserved_Words">MDN Keyword List</a></p>
@@ -383,7 +383,7 @@ if (condition === "something"){
 greeting = "Hello!"; //value assigned here
 
 //variable declared and value assigned in one line
-var greeting = "Hello!"; 
+var greeting = "Hello!";
 </code></pre>
 
 <h2>Functions</h2>
@@ -422,9 +422,9 @@ Functions need to be <em>defined</em> to bring it into existence. The name of th
 <pre><code>myFunction(); // calling the function
 
 //defining function
-function myFunction() { 
-    alert("This is a function declaration!"); 
-} 
+function myFunction() {
+    alert("This is a function declaration!");
+}
 </code></pre>
 
 <h4>Function Expression</h4>
@@ -443,8 +443,8 @@ function myFunction() {
 <pre><code>myFunction(); // calling function
 
 //defining function
-var myFunction = function() { 
-    alert("This is a function expression!"); 
+var myFunction = function() {
+    alert("This is a function expression!");
 };
 
 &gt; TypeError: undefined is not a function
@@ -516,7 +516,7 @@ function anotherFunction(param1, param2){
 <pre><code>//calling a function with no parameters
 myFunction();
 
-//calling the function and passing two different 
+//calling the function and passing two different
 //sets of arguments into param1 and param2
 anotherFunction("hello", "hi");
 anotherFunction("goodbye", "bye");
@@ -548,7 +548,7 @@ var myPizza = makePizza("pepperoni &amp; mushrooms");
 alert(myPizza);
 </code></pre>
 
-<p>The <code>makePizza</code> function has been assigned to the variable <code>myPizza</code>.<br/>
+<p>The value returned by the <code>makePizza</code> function has been assigned to the variable <code>myPizza</code>.<br/>
 The argument "pepperoni &amp; mushrooms" is passed into the <code>toppings</code> parameter.  The alert will then show "pepperoni &amp; mushrooms".</p>
 
 <h2>Objects</h2>
@@ -583,8 +583,8 @@ var myObject = {};
 myObject = {
     myProperty : "value",
     anotherProperty : "another value",
-    myMethod : function(){        
-        // code to be executed            
+    myMethod : function(){
+        // code to be executed
     }// closes function
 };
 </code></pre>
@@ -594,8 +594,8 @@ myObject = {
 <pre><code>var myObject = {
     myProperty : "value",
     anotherProperty : "another value",
-    myMethod : function(){        
-        // code to be executed            
+    myMethod : function(){
+        // code to be executed
     }// closes function
 };
 </code></pre>
@@ -755,9 +755,9 @@ var bigNumber = 100;
 
 if(smallNumber &lt; 10 &amp;&amp; bigNumber &gt; 50){
     console.log("Will log if both conditions are true.");
-} 
+}
 
-if(smallNumber &gt; 10 || bigNumber &gt; 50) {            
+if(smallNumber &gt; 10 || bigNumber &gt; 50) {
     console.log("Will log if at least one condition is true.");
 }
 
